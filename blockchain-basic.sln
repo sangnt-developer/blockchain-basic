@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31112.23
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "blockchain-basic", "blockchain-demo1\blockchain-basic.csproj", "{E948C8A3-63D4-4FB9-B05B-000FF882E791}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "blockchain-basic", "blockchain-basic\blockchain-basic.csproj", "{E948C8A3-63D4-4FB9-B05B-000FF882E791}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
