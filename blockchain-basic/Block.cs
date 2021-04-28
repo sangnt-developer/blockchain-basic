@@ -1,11 +1,10 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
 
-namespace blockchain_demo1
+namespace blockchain_basic
 {
     public class Block
     {
@@ -13,22 +12,22 @@ namespace blockchain_demo1
         public DateTime TimeStamp { get; set; }
         public string PreviousHash { get; set; }
         public string Hash { get; set; }
-        public string Data { get; set; }
+        public IList<Transaction> Transactions { get; set; }
         public int Nonce { get; set; }
 
-        public Block(DateTime timeStamp, string previousHash, string data)
+        public Block(DateTime timeStamp, string previousHash, IList<Transaction> transactions)
         {
             Index = 0;
             TimeStamp = timeStamp;
             PreviousHash = previousHash;
-            Data = data;
+            Transactions = transactions;
             Hash = CalculateHash();
 
         }
 
         public string CalculateHash()
         {
-            var unhashedString = $"{TimeStamp}-{PreviousHash ?? ""}-{Data}-{Nonce}";
+            var unhashedString = $"{TimeStamp}-{PreviousHash ?? ""}-{JsonConvert.SerializeObject(Transactions)}-{Nonce}";
             byte[] inputBytes = Encoding.ASCII.GetBytes(unhashedString);
 
             SHA256 sha256 = SHA256.Create();
